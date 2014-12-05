@@ -1,5 +1,5 @@
 """
-Django settings for pybursa project.
+Django settings for pybusra project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_!)1$-uba2!(m(bb7hl08mb(5rvge3l@3pndts68wq*g)!cihc'
+SECRET_KEY = '=wwxmv8mr^e@6kh$jw_)kmreq475bbd#wx=0xdqg67^uewh=c0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #''
+    'students',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'pybursa.urls'
+ROOT_URLCONF = 'pybusra.urls'
 
-WSGI_APPLICATION = 'pybursa.wsgi.application'
+WSGI_APPLICATION = 'pybusra.wsgi.application'
 
 
 # Database
@@ -65,7 +65,9 @@ DATABASES = {
 }
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 

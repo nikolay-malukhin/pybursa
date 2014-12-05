@@ -29,13 +29,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">PyBursa</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li {# class="active" #}><a href="/students/">Students list</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -43,10 +41,14 @@
 
     <div class="container">
 
-      <div class="starter-template">
-        <h1>PyBursa 07</h1>
-        <p class="lead"><a href="/theme/">Go to theme</a> <a href="http://ya.ru/">Go to Yandex</a>  Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+        <h1>Student: {{ student.surname }} {{ student.name }}</h1>
+        <ul class="list-group">
+          <li class="list-group-item">Email: {{ student.email }}</li>
+          <li class="list-group-item">Телефон: {{ student.phone }}</li>
+          <li class="list-group-item">Пакет: {{ student.package }}</li>
+          {# <li class="list-group-item">Рейтинг: 1</li> #}
+
+        </ul>
 
     </div><!-- /.container -->
 
@@ -55,7 +57,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-  
+    <script src="dist/js/bootstrap.min.js"></script>  
 
 </body></html>
