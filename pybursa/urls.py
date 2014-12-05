@@ -5,15 +5,11 @@ from django.contrib import admin
 
 
 urlpatterns = patterns('',
-                       # url(r'^blog/', include('blog.urls')),
+                       url(r'^student', include('students.urls')),
+                       url(r'^coach', include('coaches.urls')),
+                       url(r'^course', include('courses.urls')),
+                       url(r'^admin/', include(admin.site.urls)),
                        url(r'^$',
                            TemplateView.as_view(template_name='index.html'),
                            name='index'),
-                       url(r'^products/$',
-                           TemplateView.as_view(template_name='products.html'),
-                           name='products'),
-                       url(r'^product/$',
-                           TemplateView.as_view(template_name='product.html'),
-                           name='product'),
-                       url(r'^admin/', include(admin.site.urls)),
 )
