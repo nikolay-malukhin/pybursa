@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <ul class="list-group">
+    {% for coach in coaches %}
+    	<li class="list-group-item"><a href="
+    	{% url 'coach_info' coach.id %}">{{ coach.first_name }}
+            {{ coach.last_name }}</a>
+        </li>{% endfor %}
+    </ul>
+{% endblock %}
