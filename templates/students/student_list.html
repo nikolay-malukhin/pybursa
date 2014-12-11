@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
     <table class="table table-hover">
         <thead>
@@ -18,9 +17,7 @@
                 <td>{{ forloop.counter }}</td>
                 <td>
                     <a href="{% url 'student_info' student.id %}">
-                        {{ student.first_name }}
-                    </a>
-                </td>
+                        {{ student.first_name }}</a></td>
                 <td>{{ student.last_name }}</td>
                 <td>{{ student.email }}</td>
                 <td>{{ student.phone_number }}</td>
@@ -35,4 +32,4 @@
         {% endfor %}
         </tbody>
     </table>
-{% endblock content %}
+{% endblock %}

@@ -4,7 +4,12 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Courses information system</h1>
-    <p>Here you can see information about students, courses and coaches</p>
+    <p>Here you can see information about <br/>
+        <a href="{% url 'students_list' %}">Students</a><br/>
+        <a href="{% url 'courses_list' %}">Courses</a><br/>
+        <a href="{% url 'coaches_list' %}">Coaches</a><br/></p>
 </div>
 </div>
 {% endblock content %}
+
+

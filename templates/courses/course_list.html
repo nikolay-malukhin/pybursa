@@ -1,20 +1,19 @@
 {% extends "base.html" %}
-
 {% block content %}
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Technology</th>
-                <th>Coach</th>
-                <th>Assistant</th>
-                <th>Start date</th>
-                <th>End date</th>
-            </tr>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Technology</th>
+            <th>Coach</th>
+            <th>Assistant</th>
+            <th>Start date</th>
+            <th>End date</th>
+        </tr>
         </thead>
         <tbody>
-            {% for course in courses %}
+        {% for course in courses %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td><a href="{% url 'course_info' course.id %}">
@@ -39,7 +38,7 @@
                 <td>{{ course.start_date }}</td>
                 <td>{{ course.end_date }}</td>
             </tr>
-            {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
-{% endblock content %}
+{% endblock %}
