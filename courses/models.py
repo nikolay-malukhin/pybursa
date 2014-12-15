@@ -17,6 +17,7 @@ class Course(models.Model):
     end_date = models.DateField()
     technology = models.CharField(max_length=255, choices=TECHNOLOGY_CHOICE)
     venue = models.ForeignKey('students.Address', null=True, blank=True)
+    slug = models.SlugField(default='')
 
     def __unicode__(self):
         return "%s (%s) - %s" % (self.name, self.coach, self.technology)

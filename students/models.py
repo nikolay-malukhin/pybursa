@@ -15,6 +15,7 @@ class Student(models.Model):
                                default='s')
     dossier = models.OneToOneField('students.Dossier', blank=True, null=True)
 
+
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
 
