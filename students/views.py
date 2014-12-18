@@ -16,7 +16,7 @@ def student_info(request, student_id):
 
 def address_info(request, address_id):
     address = get_object_or_404(Address, id=address_id)
-    return render(request, 'addresses/student_detail.html', {'address': address})
+    return render(request, 'addresses/address_info.html', {'address': address})
 
 
 def address_list(request):
