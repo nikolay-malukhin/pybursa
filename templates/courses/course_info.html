@@ -1,4 +1,7 @@
-{% extends "base.html" %}
+{% extends "courses/base.html" %}
+{% block title %}{{ block.super }}Info{% endblock %}
+
+
 {% block content %}
     <div class="page-header">
         <h1>{{ course.name }}</h1>
@@ -36,10 +39,10 @@
                 </tr>
             {% endif %}
             {% if course.venue %}
-                            <tr>
+                <tr>
                     <td>Venue</td>
                     <td>
-                       {{ course.venue }}
+                        {{ course.venue }}
                     </td>
                 </tr>
             {% endif %}
