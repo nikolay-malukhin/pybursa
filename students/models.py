@@ -19,8 +19,7 @@ class Student(models.Model):
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
 
-
-#Dossier model
+ #Dossier model
 class Dossier(models.Model):
     COLORS = (('r', 'Red'),
               ('o', 'Orange'),

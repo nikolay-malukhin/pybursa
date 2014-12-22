@@ -8,17 +8,19 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('students', '0001_initial'),
         ('coaches', '0001_initial'),
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='coach',
-            name='phone_number',
-            field=models.CharField(max_length=13, blank=True),
+            name='dossier',
+            field=models.OneToOneField(null=True, blank=True, to='students.Dossier'),
             preserve_default=True,
         ),
-        migrations.AlterField(
+        migrations.AddField(
             model_name='coach',
             name='user',
             field=models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True),

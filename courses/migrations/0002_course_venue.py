@@ -7,14 +7,15 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('students', '0001_initial'),
         ('courses', '0001_initial'),
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='course',
-            name='assistant',
-            field=models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach', null=True),
+            name='venue',
+            field=models.ForeignKey(blank=True, to='students.Address', null=True),
             preserve_default=True,
         ),
     ]

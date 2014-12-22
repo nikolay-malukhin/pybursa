@@ -12,6 +12,8 @@
             <th>Email</th>
             <th>Phone number</th>
             <th>Courses</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -31,8 +33,21 @@
                         </a>
                     {% endfor %}
                 </td>
+                <td>
+                    <a href="{% url 'student_edit' student.id %}">
+                        edit<br>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'student_delete' student.id %}">
+                        delete<br>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <a href="{% url 'student_new' %}">
+        add new<br>
+    </a>
 {% endblock %}

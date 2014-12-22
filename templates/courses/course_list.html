@@ -13,6 +13,8 @@
             <th>Assistant</th>
             <th>Start date</th>
             <th>End date</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -24,24 +26,37 @@
                 </td>
                 <td>{{ course.get_technology_display }}</td>
                 <td>
-                    <a href='{% url 'coach_info' course.coach.id %}'>
+
                         {{ course.coach }}
-                    </a>
+
                 </td>
 
                 <td>
                     {% if course.assistant %}
-                        <a href='{% url 'coach_info' course.assistant.id %}'>
+
                             {{ course.assistant }}
-                        </a>
+
                     {% else %}
                         &nbsp;
                     {% endif %}
                 </td>
                 <td>{{ course.start_date }}</td>
                 <td>{{ course.end_date }}</td>
+                <td>
+                    <a href="{% url 'course_edit' course.id %}">
+                        edit<br>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'course_delete' course.id %}">
+                        delete<br>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <a href="{% url 'course_new' %}">
+        add new<br>
+    </a>
 {% endblock %}

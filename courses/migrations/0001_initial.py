@@ -19,9 +19,10 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('start_date', models.DateField()),
                 ('end_date', models.DateField()),
-                ('technology', models.CharField(max_length=255, choices=[(b'p', b'Python'), (b'r', b'Ruby'), (b'j', b'JavaScript')])),
-                ('assistant', models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach')),
-                ('coach', models.ForeignKey(to='coaches.Coach')),
+                ('technology', models.CharField(max_length=255, choices=[(b'p', b'Python'), (b'r', b'Ruby'), (b'j', b'JS')])),
+                ('slug', models.SlugField(default=b'')),
+                ('assistant', models.ForeignKey(related_name='assistant', blank=True, to='coaches.Coach', null=True)),
+                ('coach', models.ForeignKey(blank=True, to='coaches.Coach', null=True)),
             ],
             options={
             },

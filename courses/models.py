@@ -11,7 +11,7 @@ class Course(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.TextField()
-    coach = models.ForeignKey('coaches.Coach')
+    coach = models.ForeignKey('coaches.Coach', null=True, blank=True)
     assistant = models.ForeignKey('coaches.Coach', blank=True, related_name="assistant", null=True)
     start_date = models.DateField()
     end_date = models.DateField()
