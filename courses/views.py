@@ -1,4 +1,6 @@
+# coding=utf-8
 from django.shortcuts import render, get_object_or_404 ,redirect
+from django.views.generic import DetailView, ListView
 from datetime import datetime, date
 # Create your views here.
 from courses.models import Course
@@ -13,9 +15,22 @@ class CourseModelForm(forms.ModelForm):
         }
 
 
-def courses_list(request):
-    courses = Course.objects.all()
-    return render(request, 'courses/course_list.html', {'courses': courses})
+# def courses_list(request):
+#     courses = Course.objects.all()
+#     return render(request, 'courses/course_list.html', {'courses': courses})
+
+class Courses(ListView):
+    model = Course
+
+    context_object_name = 'courses'
+
+    template_name = 'courses/course_list.html'
+
+    paginate_by = 10
+
+    def get_queryset(self):
+        qs = Course.objects.all()
+        return qs
 
 
 def course_info(request, course_id):

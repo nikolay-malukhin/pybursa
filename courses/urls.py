@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from courses.views import courses_list, course_info, course_edit, course_delete, course_new
+from courses.views import Courses, course_info, course_edit, course_delete, course_new
 
 
 urlpatterns = patterns('',
@@ -9,5 +9,5 @@ urlpatterns = patterns('',
                                               url(r'^/edit/(?P<course_id>\d+)/$', course_edit, name='course_edit'),
                        url(r'^/new/$', course_new, name='course_new'),
                        url(r'^/delete/(?P<course_id>\d+)/$', course_delete, name='course_delete'),
-                       url(r'^/$', courses_list, name='courses_list'),
+                       url(r'^/$', Courses.as_view(), name='courses_list'),
                        )
