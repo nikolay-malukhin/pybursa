@@ -1,13 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, ListView
+from django.views.generic.edit import (CreateView, UpdateView, DeleteView)
+from django.core.urlresolvers import reverse_lazy
+from django import forms
 
 # Create your views here.
 from coaches.models import Coach
 
+class CoachModelForm(forms.ModelForm):
+   class Meta:
+        model = Coach
+        fields = ['first_name', 'last_name', 'email', 'phone_number', 'type',
+        'user', 'dossier']
 
-# def coaches_list(request):
-#     coaches = Coach.objects.all()
-#     return render(request, 'coaches/coach_list.html', {'coaches': coaches})
 
 class Coaches(ListView):
     model = Coach
@@ -22,16 +27,40 @@ class Coaches(ListView):
         qs = Coach.objects.all()
         return qs
 
-
-def coach_info(request, coach_id):
-    coach = get_object_or_404(Coach, id=coach_id)
-    return render(request, 'coaches/coach_info.html', {'coach': coach})
-
 class CoachDetail(DetailView):
-
+    template_name = 'coaches/coach_info.html'
     model = Coach
 
-    def get_context_data(self, coach_id):
-        context = super(CoachDetail, self).get_context_data()
-        context['coach'] = get_object_or_404(Coach, id=coach_id)
+class CoachAdd(CreateView):
+    template_name = 'coaches/coach_edit.html'
+    model = Coach
+    form_class = CoachModelForm
+    success_url = reverse_lazy('coaches_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachAdd, self).get_context_data(**kwargs)
+        context['title'] = 'Coach add item'
+        return context
+
+
+class CoachEdit(UpdateView):
+    template_name = 'coaches/coach_edit.html'
+    model = Coach
+    form_class = CoachModelForm
+    success_url = reverse_lazy('coaches_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachEdit, self).get_context_data(**kwargs)
+        context['title'] = 'Coach update item'
+        return context
+
+
+class CoachDelete(DeleteView):
+    template_name = 'coaches/coach_delete.html'
+    model = Coach
+    success_url = reverse_lazy('coaches_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachDelete, self).get_context_data(**kwargs)
+        context['title'] = 'Coach delete item'
         return context

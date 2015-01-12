@@ -1,0 +1,18 @@
+{% extends "coaches/base.html" %}
+
+{% block menu-students-class %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Coach edit item</h1>
+        <form method="post">
+            {% csrf_token %}
+                {{ form.as_p }}
+            <input type="submit" value="Отослать" />
+        </form>
+
+    </div>
+
+{% endblock %}
